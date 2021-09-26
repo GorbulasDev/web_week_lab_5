@@ -25,6 +25,8 @@ console.log('ISS Latitude is:', issLatitude)
 const issLongitude = iss_location.iss_position.longitude
 console.log('ISS Longitude is', issLongitude)
 
+console.log('\n')
+
 // Currency rates.
 let rates = {
     "AUD": 1.5417,
@@ -37,17 +39,25 @@ let rates = {
 rates.CHF = 1.1787
 console.log(rates)
 
+console.log('\n')
+
 // Get the exchange rate from the object, then calculate 
 //      the equivalent value in Australian Dollars (AUD)
 let Euros = 100
 console.log('100 Euros is equivalent to', Euros * rates.AUD, 'Australian Dollars.')
 
-// TODO write code to identify the currency symbol that has the highest exchange rate compared to Euros.
-//    In other words, identify the property with the largest value. the answer is BRL (Brazilian Real) at 3.8959 BRL to 1 Euro.
+// Identify the currency symbol that has the highest exchange rate compared to Euros.
+//    In other words, identify the property with the largest value.
 
+let arr = Object.values(rates);
+let max = Math.max(...arr);
+
+console.log(`Largest value: ${max}`);
 
 /* c. JavaScript array of objects of cat owners, and their cats. Source, moderncat.com
  */
+
+console.log('\n')
 
 let cats_and_owners = [
   { name: "Bill Clinton", cat: "Socks" },
@@ -57,16 +67,22 @@ let cats_and_owners = [
 ]
 
 // Print Gary Oldman's cat's name.
-console.log(cats_and_owners[1].cat)
+console.log('Gary Oldman cat name:' , cats_and_owners[1].cat)
+
+console.log('\n')
 
 // Add Taylor Swift's and their cat to the array.
 cats_and_owners.push({name: "Taylor Swift", cat: "Meredith"})
 console.log(cats_and_owners)
 
+console.log('\n')
+
 // Print each owner and their details.
 cats_and_owners.forEach(function(ownerDetails) {
-  console.log(ownerDetails)
+  console.log('Owners and their details...', ownerDetails)
 })
+
+console.log('\n')
 
 // List of Nobel Prize winners in 2017!
 let nobel_prize_winners_2017 = {
@@ -212,12 +228,16 @@ nobel_prize_winners_2017.prizes.forEach(function(lorList) {
   console.log(lorList.category)
 })
 
+console.log('\n')
+
 // Print the total number of prize categories.
 let totalPrizes = 0
 for (count in nobel_prize_winners_2017.prizes) {
   totalPrizes++
 }
-console.log(totalPrizes)
+console.log(`There are ${totalPrizes} prize categories.`)
+
+console.log('\n')
 
 // Count the total number of laureates from 2017. 
 let totalLaureates = 0
@@ -225,3 +245,5 @@ for (count in nobel_prize_winners_2017.prizes) {
   totalLaureates++
 }
 console.log(`There were ${totalLaureates} laureates in 2017.`)
+
+console.log('\n')
