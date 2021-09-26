@@ -17,19 +17,15 @@ let iss_location = {
   "message": "success"
 }
 
-// TODO Extract the latitude value, and log it to the console.
+// Extract the latitude value, and log it to the console.
 const issLatitude = iss_location.iss_position.latitude
 console.log('ISS Latitude is:', issLatitude)
 
-// TODO Extract the longitude value, and log it to the console.
+// Extract the longitude value, and log it to the console.
 const issLongitude = iss_location.iss_position.longitude
 console.log('ISS Longitude is', issLongitude)
 
-/* b. Use this JavaScript object of exchange rates relative to Euros.
-The properties are currency symbols, the values are the exchange rates.
-Data source: http://fixer.io/
-* */
-
+// Currency rates.
 let rates = {
     "AUD": 1.5417,
     "BGN": 1.9558,
@@ -37,24 +33,20 @@ let rates = {
     "CAD": 1.5194
 }
 
-// TODO write code to add a new property for Swiss Francs. Symbol is CHF, value is 1.1787.
+// Add a new property for Swiss Francs.
 rates.CHF = 1.1787
 console.log(rates)
 
-// TODO if you had 100 Euros, write code to get the exchange rate from the object, then calculate 
+// Get the exchange rate from the object, then calculate 
 //      the equivalent value in Australian Dollars (AUD)
 let Euros = 100
 console.log('100 Euros is equivalent to', Euros * rates.AUD, 'Australian Dollars.')
-
-
 
 // TODO write code to identify the currency symbol that has the highest exchange rate compared to Euros.
 //    In other words, identify the property with the largest value. the answer is BRL (Brazilian Real) at 3.8959 BRL to 1 Euro.
 
 
-
-
-/* c. Use this JavaScript array of objects of cat owners, and their cats. Source, moderncat.com
+/* c. JavaScript array of objects of cat owners, and their cats. Source, moderncat.com
  */
 
 let cats_and_owners = [
@@ -64,22 +56,19 @@ let cats_and_owners = [
   { name: "Snoop Dogg", cat: "Miles Davis" }
 ]
 
-// TODO print Gary Oldman's cat's name
+// Print Gary Oldman's cat's name.
 console.log(cats_and_owners[1].cat)
 
-// TODO Taylor Swift's cat is called 'Meredith'. Write code to add this data to the array.
+// Add Taylor Swift's and their cat to the array.
 cats_and_owners.push({name: "Taylor Swift", cat: "Meredith"})
 console.log(cats_and_owners)
 
-// TODO write a loop to print each cat owner, and their cat's name, one per line. Use the forEach style.
+// Print each owner and their details.
 cats_and_owners.forEach(function(ownerDetails) {
   console.log(ownerDetails)
 })
 
-/* d. Use the following JSON object, describing the Nobel Prize winners in 2017.
-Source http://api.nobelprize.org/v1/prize.json?year=2017
-* */
-
+// List of Nobel Prize winners in 2017!
 let nobel_prize_winners_2017 = {
   "prizes":[
     {
@@ -206,35 +195,33 @@ let nobel_prize_winners_2017 = {
 }
 
 console.log('\nLiterature Nobel laureate names:\n')
-// TODO print the full name of the Literature Nobel laureate.
+// Print the name of the Literature Nobel laureate.
 nobel_prize_winners_2017.prizes.forEach(function(lorList) {
   console.log(lorList.laureates[0].firstname, lorList.laureates[0].surname)
 })
 
 console.log('\nPhysics Nobel laureates IDs:\n')
-// TODO print the ids of each of the Physics Nobel laureates. Your code should still work without modification if a laureate was added, or removed.
+// Print the ids of each of the Physics Nobel laureates.
 nobel_prize_winners_2017.prizes.forEach(function(lorList) {
   console.log(lorList.laureates[0].id)
 })
 
 console.log('\nPrize categories:\n')
-// TODO write code to print the names of all of the prize categories (So your output would start physics, chemistry, medicine... ).
+// Print the names of all of the prize categories.
 nobel_prize_winners_2017.prizes.forEach(function(lorList) {
   console.log(lorList.category)
 })
 
-// TODO write code to print the total number of prize categories
+// Print the total number of prize categories.
 let totalPrizes = 0
 for (count in nobel_prize_winners_2017.prizes) {
   totalPrizes++
 }
 console.log(totalPrizes)
 
-// TODO write code to count the total number of laureates from 2017. 
-//   have a good look at how the JSON is structured, and think about what loop(s) you'll need to write.
+// Count the total number of laureates from 2017. 
 let totalLaureates = 0
 for (count in nobel_prize_winners_2017.prizes) {
   totalLaureates++
 }
 console.log(`There were ${totalLaureates} laureates in 2017.`)
-
