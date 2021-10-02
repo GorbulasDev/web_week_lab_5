@@ -63,8 +63,11 @@
                     })
             })
 
+            
             function displayRepositoriesOnPage(githubJson) {
                 console.log(githubJson)
+
+                let langStats = { }
 
                 // TODO use the JSON to display a list of the user's repositories
                 githubJson.forEach(function(repository) {                    
@@ -77,13 +80,22 @@
                     newListLinks.href = repository.html_url
                     repoList.appendChild(newListLinks)
 
-                    let repoLanguageStats = document.createElement('li')
-                    repoLanguageStats.innerHTML = repository.language
-                    repoStats.appendChild(repoLanguageStats)
+                    let repositoryLanguage = repository.language
+                     
+                    if (langStats[repositoryLanguage]) {
+                        langStats[repositoryLanguage]++
+                    } else {
+                        langStats[repositoryLanguage] = 1
+                    }
                 })
+
+                for (let langType in langStats) {
+                    let repoLanguageStats = document.createElement('li')
+                    repoLanguageStats.innerHTML = `${langType} has ${langStats[langType]} repos`
+                    repoStats.appendChild(repoLanguageStats)
+                }
             }
-
-
+            
         </script>
     </body>
 </html>
